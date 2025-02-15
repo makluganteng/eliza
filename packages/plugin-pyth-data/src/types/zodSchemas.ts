@@ -1,13 +1,13 @@
-import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
-import { z } from "zod";
+import { makeApi, Zodios, type ZodiosOptions } from '@zodios/core';
+import { z } from 'zod';
 
 const AssetType = z.enum([
-  "crypto",
-  "fx",
-  "equity",
-  "metal",
-  "rates",
-  "crypto_redemption_rate",
+  'crypto',
+  'fx',
+  'equity',
+  'metal',
+  'rates',
+  'crypto_redemption_rate',
 ]);
 const asset_type = AssetType.nullish();
 const RpcPriceIdentifier = z.string();
@@ -15,7 +15,7 @@ const PriceFeedMetadata = z
   .object({ attributes: z.record(z.string()), id: RpcPriceIdentifier })
   .passthrough();
 const PriceIdInput = z.string();
-const EncodingType = z.enum(["hex", "base64"]);
+const EncodingType = z.enum(['hex', 'base64']);
 const BinaryUpdate = z
   .object({ data: z.array(z.string()), encoding: EncodingType })
   .passthrough();
@@ -98,60 +98,60 @@ export const schemas = {
 
 const endpoints = makeApi([
   {
-    method: "get",
-    path: "/v2/price_feeds",
-    alias: "price_feeds_metadata",
+    method: 'get',
+    path: '/v2/price_feeds',
+    alias: 'price_feeds_metadata',
     description: `Get the set of price feeds.
 
 This endpoint fetches all price feeds from the Pyth network. It can be filtered by asset type
 and query string.`,
-    requestFormat: "json",
+    requestFormat: 'json',
     parameters: [
       {
-        name: "query",
-        type: "Query",
+        name: 'query',
+        type: 'Query',
         schema: z.string().nullish(),
       },
       {
-        name: "asset_type",
-        type: "Query",
+        name: 'asset_type',
+        type: 'Query',
         schema: asset_type,
       },
     ],
     response: z.array(PriceFeedMetadata),
   },
   {
-    method: "get",
-    path: "/v2/updates/price/:publish_time",
-    alias: "timestamp_price_updates",
+    method: 'get',
+    path: '/v2/updates/price/:publish_time',
+    alias: 'timestamp_price_updates',
     description: `Get the latest price updates by price feed id.
 
 Given a collection of price feed ids, retrieve the latest Pyth price for each price feed.`,
-    requestFormat: "json",
+    requestFormat: 'json',
     parameters: [
       {
-        name: "publish_time",
-        type: "Path",
+        name: 'publish_time',
+        type: 'Path',
         schema: z.number().int(),
       },
       {
-        name: "ids[]",
-        type: "Query",
+        name: 'ids[]',
+        type: 'Query',
         schema: z.array(PriceIdInput),
       },
       {
-        name: "encoding",
-        type: "Query",
-        schema: z.enum(["hex", "base64"]).optional(),
+        name: 'encoding',
+        type: 'Query',
+        schema: z.enum(['hex', 'base64']).optional(),
       },
       {
-        name: "parsed",
-        type: "Query",
+        name: 'parsed',
+        type: 'Query',
         schema: z.boolean().optional(),
       },
       {
-        name: "ignore_invalid_price_ids",
-        type: "Query",
+        name: 'ignore_invalid_price_ids',
+        type: 'Query',
         schema: z.boolean().optional(),
       },
     ],
@@ -165,32 +165,32 @@ Given a collection of price feed ids, retrieve the latest Pyth price for each pr
     ],
   },
   {
-    method: "get",
-    path: "/v2/updates/price/latest",
-    alias: "latest_price_updates",
+    method: 'get',
+    path: '/v2/updates/price/latest',
+    alias: 'latest_price_updates',
     description: `Get the latest price updates by price feed id.
 
 Given a collection of price feed ids, retrieve the latest Pyth price for each price feed.`,
-    requestFormat: "json",
+    requestFormat: 'json',
     parameters: [
       {
-        name: "ids[]",
-        type: "Query",
+        name: 'ids[]',
+        type: 'Query',
         schema: z.array(PriceIdInput),
       },
       {
-        name: "encoding",
-        type: "Query",
-        schema: z.enum(["hex", "base64"]).optional(),
+        name: 'encoding',
+        type: 'Query',
+        schema: z.enum(['hex', 'base64']).optional(),
       },
       {
-        name: "parsed",
-        type: "Query",
+        name: 'parsed',
+        type: 'Query',
         schema: z.boolean().optional(),
       },
       {
-        name: "ignore_invalid_price_ids",
-        type: "Query",
+        name: 'ignore_invalid_price_ids',
+        type: 'Query',
         schema: z.boolean().optional(),
       },
     ],
@@ -204,40 +204,40 @@ Given a collection of price feed ids, retrieve the latest Pyth price for each pr
     ],
   },
   {
-    method: "get",
-    path: "/v2/updates/price/stream",
-    alias: "price_stream_sse_handler",
+    method: 'get',
+    path: '/v2/updates/price/stream',
+    alias: 'price_stream_sse_handler',
     description: `SSE route handler for streaming price updates.`,
-    requestFormat: "json",
+    requestFormat: 'json',
     parameters: [
       {
-        name: "ids[]",
-        type: "Query",
+        name: 'ids[]',
+        type: 'Query',
         schema: z.array(PriceIdInput),
       },
       {
-        name: "encoding",
-        type: "Query",
-        schema: z.enum(["hex", "base64"]).optional(),
+        name: 'encoding',
+        type: 'Query',
+        schema: z.enum(['hex', 'base64']).optional(),
       },
       {
-        name: "parsed",
-        type: "Query",
+        name: 'parsed',
+        type: 'Query',
         schema: z.boolean().optional(),
       },
       {
-        name: "allow_unordered",
-        type: "Query",
+        name: 'allow_unordered',
+        type: 'Query',
         schema: z.boolean().optional(),
       },
       {
-        name: "benchmarks_only",
-        type: "Query",
+        name: 'benchmarks_only',
+        type: 'Query',
         schema: z.boolean().optional(),
       },
       {
-        name: "ignore_invalid_price_ids",
-        type: "Query",
+        name: 'ignore_invalid_price_ids',
+        type: 'Query',
         schema: z.boolean().optional(),
       },
     ],
@@ -251,57 +251,57 @@ Given a collection of price feed ids, retrieve the latest Pyth price for each pr
     ],
   },
   {
-    method: "get",
-    path: "/v2/updates/publisher_stake_caps/latest",
-    alias: "latest_publisher_stake_caps",
+    method: 'get',
+    path: '/v2/updates/publisher_stake_caps/latest',
+    alias: 'latest_publisher_stake_caps',
     description: `Get the most recent publisher stake caps update data.`,
-    requestFormat: "json",
+    requestFormat: 'json',
     parameters: [
       {
-        name: "encoding",
-        type: "Query",
-        schema: z.enum(["hex", "base64"]).optional(),
+        name: 'encoding',
+        type: 'Query',
+        schema: z.enum(['hex', 'base64']).optional(),
       },
       {
-        name: "parsed",
-        type: "Query",
+        name: 'parsed',
+        type: 'Query',
         schema: z.boolean().optional(),
       },
     ],
     response: LatestPublisherStakeCapsUpdateDataResponse,
   },
   {
-    method: "get",
-    path: "/v2/updates/twap/:window_seconds/latest",
-    alias: "latest_twaps",
+    method: 'get',
+    path: '/v2/updates/twap/:window_seconds/latest',
+    alias: 'latest_twaps',
     description: `Get the latest TWAP by price feed id with a custom time window.
 
 Given a collection of price feed ids, retrieve the latest Pyth TWAP price for each price feed.`,
-    requestFormat: "json",
+    requestFormat: 'json',
     parameters: [
       {
-        name: "window_seconds",
-        type: "Path",
+        name: 'window_seconds',
+        type: 'Path',
         schema: z.number().int().gte(0),
       },
       {
-        name: "ids[]",
-        type: "Query",
+        name: 'ids[]',
+        type: 'Query',
         schema: z.array(PriceIdInput),
       },
       {
-        name: "encoding",
-        type: "Query",
-        schema: z.enum(["hex", "base64"]).optional(),
+        name: 'encoding',
+        type: 'Query',
+        schema: z.enum(['hex', 'base64']).optional(),
       },
       {
-        name: "parsed",
-        type: "Query",
+        name: 'parsed',
+        type: 'Query',
         schema: z.boolean().optional(),
       },
       {
-        name: "ignore_invalid_price_ids",
-        type: "Query",
+        name: 'ignore_invalid_price_ids',
+        type: 'Query',
         schema: z.boolean().optional(),
       },
     ],

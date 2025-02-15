@@ -1,0 +1,14 @@
+{
+  "name": "@elizaos/agent-test-agent-1",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@elizaos/core": "latest",
+    "@elizaos/plugin-thirdWeb": "latest",
+    "@elizaos/plugin-openai": "latest"
+  }
+}

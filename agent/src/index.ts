@@ -1,32 +1,32 @@
-import { PGLiteDatabaseAdapter } from "@elizaos/adapter-pglite";
-import { PostgresDatabaseAdapter } from "@elizaos/adapter-postgres";
-import { QdrantDatabaseAdapter } from "@elizaos/adapter-qdrant";
-import { RedisClient } from "@elizaos/adapter-redis";
-import { SqliteDatabaseAdapter } from "@elizaos/adapter-sqlite";
-import { SupabaseDatabaseAdapter } from "@elizaos/adapter-supabase";
-import { AutoClientInterface } from "@elizaos/client-auto";
-import { DiscordClientInterface } from "@elizaos/client-discord";
-import { InstagramClientInterface } from "@elizaos/client-instagram";
-import { LensAgentClient } from "@elizaos/client-lens";
-import { SlackClientInterface } from "@elizaos/client-slack";
-import { TelegramClientInterface } from "@elizaos/client-telegram";
-import { TelegramAccountClientInterface } from "@elizaos/client-telegram-account";
-import { TwitterClientInterface } from "@elizaos/client-twitter";
-import { AlexaClientInterface } from "@elizaos/client-alexa";
-import { MongoDBDatabaseAdapter } from "@elizaos/adapter-mongodb";
-import { DevaClientInterface } from "@elizaos/client-deva";
+import { PGLiteDatabaseAdapter } from '@elizaos/adapter-pglite';
+import { PostgresDatabaseAdapter } from '@elizaos/adapter-postgres';
+import { QdrantDatabaseAdapter } from '@elizaos/adapter-qdrant';
+import { RedisClient } from '@elizaos/adapter-redis';
+import { SqliteDatabaseAdapter } from '@elizaos/adapter-sqlite';
+import { SupabaseDatabaseAdapter } from '@elizaos/adapter-supabase';
+import { AutoClientInterface } from '@elizaos/client-auto';
+import { DiscordClientInterface } from '@elizaos/client-discord';
+import { InstagramClientInterface } from '@elizaos/client-instagram';
+import { LensAgentClient } from '@elizaos/client-lens';
+import { SlackClientInterface } from '@elizaos/client-slack';
+import { TelegramClientInterface } from '@elizaos/client-telegram';
+import { TelegramAccountClientInterface } from '@elizaos/client-telegram-account';
+import { TwitterClientInterface } from '@elizaos/client-twitter';
+import { AlexaClientInterface } from '@elizaos/client-alexa';
+import { MongoDBDatabaseAdapter } from '@elizaos/adapter-mongodb';
+import { DevaClientInterface } from '@elizaos/client-deva';
 
-import { FarcasterClientInterface } from "@elizaos/client-farcaster";
-import { OmniflixPlugin } from "@elizaos/plugin-omniflix";
-import { JeeterClientInterface } from "@elizaos/client-simsai";
-import { XmtpClientInterface } from "@elizaos/client-xmtp";
-import { DirectClient } from "@elizaos/client-direct";
-import { agentKitPlugin } from "@elizaos/plugin-agentkit";
-import { gelatoPlugin } from "@elizaos/plugin-gelato";
-import { PrimusAdapter } from "@elizaos/plugin-primus";
-import { lightningPlugin } from "@elizaos/plugin-lightning";
-import { elizaCodeinPlugin, onchainJson } from "@elizaos/plugin-iq6900";
-import { dcapPlugin } from "@elizaos/plugin-dcap";
+import { FarcasterClientInterface } from '@elizaos/client-farcaster';
+import { OmniflixPlugin } from '@elizaos/plugin-omniflix';
+import { JeeterClientInterface } from '@elizaos/client-simsai';
+import { XmtpClientInterface } from '@elizaos/client-xmtp';
+import { DirectClient } from '@elizaos/client-direct';
+import { agentKitPlugin } from '@elizaos/plugin-agentkit';
+import { gelatoPlugin } from '@elizaos/plugin-gelato';
+import { PrimusAdapter } from '@elizaos/plugin-primus';
+import { lightningPlugin } from '@elizaos/plugin-lightning';
+import { elizaCodeinPlugin, onchainJson } from '@elizaos/plugin-iq6900';
+import { dcapPlugin } from '@elizaos/plugin-dcap';
 import {
     AgentRuntime,
     CacheManager,
@@ -47,30 +47,30 @@ import {
     settings,
     stringToUuid,
     validateCharacterConfig,
-} from "@elizaos/core";
-import { zgPlugin } from "@elizaos/plugin-0g";
-import { footballPlugin } from "@elizaos/plugin-football";
+} from '@elizaos/core';
+import { zgPlugin } from '@elizaos/plugin-0g';
+import { footballPlugin } from '@elizaos/plugin-football';
 
-import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
-import { normalizeCharacter } from "@elizaos/plugin-di";
-import createGoatPlugin from "@elizaos/plugin-goat";
-import createZilliqaPlugin from "@elizaos/plugin-zilliqa";
+import { bootstrapPlugin } from '@elizaos/plugin-bootstrap';
+import { normalizeCharacter } from '@elizaos/plugin-di';
+import createGoatPlugin from '@elizaos/plugin-goat';
+import createZilliqaPlugin from '@elizaos/plugin-zilliqa';
 
 // import { intifacePlugin } from "@elizaos/plugin-intiface";
-import { ThreeDGenerationPlugin } from "@elizaos/plugin-3d-generation";
-import { abstractPlugin } from "@elizaos/plugin-abstract";
-import { akashPlugin } from "@elizaos/plugin-akash";
-import { alloraPlugin } from "@elizaos/plugin-allora";
-import { aptosPlugin } from "@elizaos/plugin-aptos";
-import { artheraPlugin } from "@elizaos/plugin-arthera";
-import { autonomePlugin } from "@elizaos/plugin-autonome";
-import { availPlugin } from "@elizaos/plugin-avail";
-import { avalanchePlugin } from "@elizaos/plugin-avalanche";
-import { b2Plugin } from "@elizaos/plugin-b2";
-import { binancePlugin } from "@elizaos/plugin-binance";
-import { birdeyePlugin } from "@elizaos/plugin-birdeye";
-import { bittensorPlugin } from "@elizaos/plugin-bittensor";
-import { bnbPlugin } from "@elizaos/plugin-bnb";
+import { ThreeDGenerationPlugin } from '@elizaos/plugin-3d-generation';
+import { abstractPlugin } from '@elizaos/plugin-abstract';
+import { akashPlugin } from '@elizaos/plugin-akash';
+import { alloraPlugin } from '@elizaos/plugin-allora';
+import { aptosPlugin } from '@elizaos/plugin-aptos';
+import { artheraPlugin } from '@elizaos/plugin-arthera';
+import { autonomePlugin } from '@elizaos/plugin-autonome';
+import { availPlugin } from '@elizaos/plugin-avail';
+import { avalanchePlugin } from '@elizaos/plugin-avalanche';
+import { b2Plugin } from '@elizaos/plugin-b2';
+import { binancePlugin } from '@elizaos/plugin-binance';
+import { birdeyePlugin } from '@elizaos/plugin-birdeye';
+import { bittensorPlugin } from '@elizaos/plugin-bittensor';
+import { bnbPlugin } from '@elizaos/plugin-bnb';
 import {
     advancedTradePlugin,
     coinbaseCommercePlugin,
@@ -78,88 +78,88 @@ import {
     tokenContractPlugin,
     tradePlugin,
     webhookPlugin,
-} from "@elizaos/plugin-coinbase";
-import { coingeckoPlugin } from "@elizaos/plugin-coingecko";
-import { coinmarketcapPlugin } from "@elizaos/plugin-coinmarketcap";
-import { confluxPlugin } from "@elizaos/plugin-conflux";
-import { createCosmosPlugin } from "@elizaos/plugin-cosmos";
-import { cronosZkEVMPlugin } from "@elizaos/plugin-cronoszkevm";
-import { deskExchangePlugin } from "@elizaos/plugin-desk-exchange";
-import { evmPlugin } from "@elizaos/plugin-evm";
-import { edwinPlugin } from "@elizaos/plugin-edwin";
-import { flowPlugin } from "@elizaos/plugin-flow";
-import { fuelPlugin } from "@elizaos/plugin-fuel";
-import { genLayerPlugin } from "@elizaos/plugin-genlayer";
-import { gitcoinPassportPlugin } from "@elizaos/plugin-gitcoin-passport";
-import { initiaPlugin } from "@elizaos/plugin-initia";
-import { imageGenerationPlugin } from "@elizaos/plugin-image-generation";
-import { lensPlugin } from "@elizaos/plugin-lens-network";
-import { litPlugin } from "@elizaos/plugin-lit";
-import { mindNetworkPlugin } from "@elizaos/plugin-mind-network";
-import { multiversxPlugin } from "@elizaos/plugin-multiversx";
-import { nearPlugin } from "@elizaos/plugin-near";
-import createNFTCollectionsPlugin from "@elizaos/plugin-nft-collections";
-import { nftGenerationPlugin } from "@elizaos/plugin-nft-generation";
-import { createNodePlugin } from "@elizaos/plugin-node";
-import { obsidianPlugin } from "@elizaos/plugin-obsidian";
-import { OpacityAdapter } from "@elizaos/plugin-opacity";
-import { openWeatherPlugin } from "@elizaos/plugin-open-weather";
-import { quaiPlugin } from "@elizaos/plugin-quai";
-import { sgxPlugin } from "@elizaos/plugin-sgx";
-import { solanaPlugin } from "@elizaos/plugin-solana";
-import { solanaPluginV2 } from "@elizaos/plugin-solana-v2";
-import { solanaAgentkitPlugin } from "@elizaos/plugin-solana-agent-kit";
-import { squidRouterPlugin } from "@elizaos/plugin-squid-router";
-import { stargazePlugin } from "@elizaos/plugin-stargaze";
-import { storyPlugin } from "@elizaos/plugin-story";
-import { suiPlugin } from "@elizaos/plugin-sui";
-import { TEEMode, teePlugin } from "@elizaos/plugin-tee";
-import { teeLogPlugin } from "@elizaos/plugin-tee-log";
-import { teeMarlinPlugin } from "@elizaos/plugin-tee-marlin";
-import { verifiableLogPlugin } from "@elizaos/plugin-tee-verifiable-log";
-import { tonPlugin } from "@elizaos/plugin-ton";
-import { webSearchPlugin } from "@elizaos/plugin-web-search";
-import { dkgPlugin } from "@elizaos/plugin-dkg";
-import { injectivePlugin } from "@elizaos/plugin-injective";
-import { giphyPlugin } from "@elizaos/plugin-giphy";
-import { letzAIPlugin } from "@elizaos/plugin-letzai";
-import { thirdwebPlugin } from "@elizaos/plugin-thirdweb";
-import { hyperliquidPlugin } from "@elizaos/plugin-hyperliquid";
-import { moralisPlugin } from "@elizaos/plugin-moralis";
-import { echoChambersPlugin } from "@elizaos/plugin-echochambers";
-import { dexScreenerPlugin } from "@elizaos/plugin-dexscreener";
-import { pythDataPlugin } from "@elizaos/plugin-pyth-data";
-import { openaiPlugin } from "@elizaos/plugin-openai";
-import nitroPlugin from "@elizaos/plugin-router-nitro";
-import { devinPlugin } from "@elizaos/plugin-devin";
-import { zksyncEraPlugin } from "@elizaos/plugin-zksync-era";
-import { chainbasePlugin } from "@elizaos/plugin-chainbase";
-import { holdstationPlugin } from "@elizaos/plugin-holdstation";
-import { nvidiaNimPlugin } from "@elizaos/plugin-nvidia-nim";
-import { zxPlugin } from "@elizaos/plugin-0x";
-import { hyperbolicPlugin } from "@elizaos/plugin-hyperbolic";
-import Database from "better-sqlite3";
-import fs from "fs";
-import net from "net";
-import path from "path";
-import { fileURLToPath } from "url";
-import yargs from "yargs";
-import { emailPlugin } from "@elizaos/plugin-email";
-import { emailAutomationPlugin } from "@elizaos/plugin-email-automation";
-import { seiPlugin } from "@elizaos/plugin-sei";
-import { sunoPlugin } from "@elizaos/plugin-suno";
-import { udioPlugin } from "@elizaos/plugin-udio";
-import { imgflipPlugin } from "@elizaos/plugin-imgflip";
-import { ethstoragePlugin } from "@elizaos/plugin-ethstorage";
-import { zerionPlugin } from "@elizaos/plugin-zerion";
-import { minaPlugin } from "@elizaos/plugin-mina";
-import { ankrPlugin } from "@elizaos/plugin-ankr";
-import { formPlugin } from "@elizaos/plugin-form";
-import { MongoClient } from "mongodb";
-import { quickIntelPlugin } from "@elizaos/plugin-quick-intel";
+} from '@elizaos/plugin-coinbase';
+import { coingeckoPlugin } from '@elizaos/plugin-coingecko';
+import { coinmarketcapPlugin } from '@elizaos/plugin-coinmarketcap';
+import { confluxPlugin } from '@elizaos/plugin-conflux';
+import { createCosmosPlugin } from '@elizaos/plugin-cosmos';
+import { cronosZkEVMPlugin } from '@elizaos/plugin-cronoszkevm';
+import { deskExchangePlugin } from '@elizaos/plugin-desk-exchange';
+import { evmPlugin } from '@elizaos/plugin-evm';
+import { edwinPlugin } from '@elizaos/plugin-edwin';
+import { flowPlugin } from '@elizaos/plugin-flow';
+import { fuelPlugin } from '@elizaos/plugin-fuel';
+import { genLayerPlugin } from '@elizaos/plugin-genlayer';
+import { gitcoinPassportPlugin } from '@elizaos/plugin-gitcoin-passport';
+import { initiaPlugin } from '@elizaos/plugin-initia';
+import { imageGenerationPlugin } from '@elizaos/plugin-image-generation';
+import { lensPlugin } from '@elizaos/plugin-lens-network';
+import { litPlugin } from '@elizaos/plugin-lit';
+import { mindNetworkPlugin } from '@elizaos/plugin-mind-network';
+import { multiversxPlugin } from '@elizaos/plugin-multiversx';
+import { nearPlugin } from '@elizaos/plugin-near';
+import createNFTCollectionsPlugin from '@elizaos/plugin-nft-collections';
+import { nftGenerationPlugin } from '@elizaos/plugin-nft-generation';
+import { createNodePlugin } from '@elizaos/plugin-node';
+import { obsidianPlugin } from '@elizaos/plugin-obsidian';
+import { OpacityAdapter } from '@elizaos/plugin-opacity';
+import { openWeatherPlugin } from '@elizaos/plugin-open-weather';
+import { quaiPlugin } from '@elizaos/plugin-quai';
+import { sgxPlugin } from '@elizaos/plugin-sgx';
+import { solanaPlugin } from '@elizaos/plugin-solana';
+import { solanaPluginV2 } from '@elizaos/plugin-solana-v2';
+import { solanaAgentkitPlugin } from '@elizaos/plugin-solana-agent-kit';
+import { squidRouterPlugin } from '@elizaos/plugin-squid-router';
+import { stargazePlugin } from '@elizaos/plugin-stargaze';
+import { storyPlugin } from '@elizaos/plugin-story';
+import { suiPlugin } from '@elizaos/plugin-sui';
+import { TEEMode, teePlugin } from '@elizaos/plugin-tee';
+import { teeLogPlugin } from '@elizaos/plugin-tee-log';
+import { teeMarlinPlugin } from '@elizaos/plugin-tee-marlin';
+import { verifiableLogPlugin } from '@elizaos/plugin-tee-verifiable-log';
+import { tonPlugin } from '@elizaos/plugin-ton';
+import { webSearchPlugin } from '@elizaos/plugin-web-search';
+import { dkgPlugin } from '@elizaos/plugin-dkg';
+import { injectivePlugin } from '@elizaos/plugin-injective';
+import { giphyPlugin } from '@elizaos/plugin-giphy';
+import { letzAIPlugin } from '@elizaos/plugin-letzai';
+import { thirdwebPlugin } from '@elizaos/plugin-thirdweb';
+import { hyperliquidPlugin } from '@elizaos/plugin-hyperliquid';
+import { moralisPlugin } from '@elizaos/plugin-moralis';
+import { echoChambersPlugin } from '@elizaos/plugin-echochambers';
+import { dexScreenerPlugin } from '@elizaos/plugin-dexscreener';
+import { pythDataPlugin } from '@elizaos/plugin-pyth-data';
+import { openaiPlugin } from '@elizaos/plugin-openai';
+import nitroPlugin from '@elizaos/plugin-router-nitro';
+import { devinPlugin } from '@elizaos/plugin-devin';
+import { zksyncEraPlugin } from '@elizaos/plugin-zksync-era';
+import { chainbasePlugin } from '@elizaos/plugin-chainbase';
+import { holdstationPlugin } from '@elizaos/plugin-holdstation';
+import { nvidiaNimPlugin } from '@elizaos/plugin-nvidia-nim';
+import { zxPlugin } from '@elizaos/plugin-0x';
+import { hyperbolicPlugin } from '@elizaos/plugin-hyperbolic';
+import Database from 'better-sqlite3';
+import fs from 'fs';
+import net from 'net';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import yargs from 'yargs';
+import { emailPlugin } from '@elizaos/plugin-email';
+import { emailAutomationPlugin } from '@elizaos/plugin-email-automation';
+import { seiPlugin } from '@elizaos/plugin-sei';
+import { sunoPlugin } from '@elizaos/plugin-suno';
+import { udioPlugin } from '@elizaos/plugin-udio';
+import { imgflipPlugin } from '@elizaos/plugin-imgflip';
+import { ethstoragePlugin } from '@elizaos/plugin-ethstorage';
+import { zerionPlugin } from '@elizaos/plugin-zerion';
+import { minaPlugin } from '@elizaos/plugin-mina';
+import { ankrPlugin } from '@elizaos/plugin-ankr';
+import { formPlugin } from '@elizaos/plugin-form';
+import { MongoClient } from 'mongodb';
+import { quickIntelPlugin } from '@elizaos/plugin-quick-intel';
 
-import { trikonPlugin } from "@elizaos/plugin-trikon";
-import arbitragePlugin from "@elizaos/plugin-arbitrage";
+import { trikonPlugin } from '@elizaos/plugin-trikon';
+import arbitragePlugin from '@elizaos/plugin-arbitrage';
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
 
@@ -182,25 +182,25 @@ export function parseArguments(): {
 } {
     try {
         return yargs(process.argv.slice(3))
-            .option("character", {
-                type: "string",
-                description: "Path to the character JSON file",
+            .option('character', {
+                type: 'string',
+                description: 'Path to the character JSON file',
             })
-            .option("characters", {
-                type: "string",
+            .option('characters', {
+                type: 'string',
                 description:
-                    "Comma separated list of paths to character JSON files",
+                    'Comma separated list of paths to character JSON files',
             })
             .parseSync();
     } catch (error) {
-        elizaLogger.error("Error parsing arguments:", error);
+        elizaLogger.error('Error parsing arguments:', error);
         return {};
     }
 }
 
 function tryLoadFile(filePath: string): string | null {
     try {
-        return fs.readFileSync(filePath, "utf8");
+        return fs.readFileSync(filePath, 'utf8');
     } catch (e) {
         return null;
     }
@@ -214,8 +214,8 @@ function mergeCharacters(base: Character, child: Character): Character {
         ]);
         keys.forEach((key) => {
             if (
-                typeof baseObj[key] === "object" &&
-                typeof childObj[key] === "object" &&
+                typeof baseObj[key] === 'object' &&
+                typeof childObj[key] === 'object' &&
                 !Array.isArray(baseObj[key]) &&
                 !Array.isArray(childObj[key])
             ) {
@@ -238,12 +238,12 @@ function mergeCharacters(base: Character, child: Character): Character {
     return mergeObjects(base, child);
 }
 function isAllStrings(arr: unknown[]): boolean {
-    return Array.isArray(arr) && arr.every((item) => typeof item === "string");
+    return Array.isArray(arr) && arr.every((item) => typeof item === 'string');
 }
 export async function loadCharacterFromOnchain(): Promise<Character[]> {
     const jsonText = onchainJson;
 
-    console.log("JSON:", jsonText);
+    console.log('JSON:', jsonText);
     if (!jsonText) return [];
     const loadedCharacters = [];
     try {
@@ -254,7 +254,7 @@ export async function loadCharacterFromOnchain(): Promise<Character[]> {
         const characterId = character.id || character.name;
         const characterPrefix = `CHARACTER.${characterId
             .toUpperCase()
-            .replace(/ /g, "_")}.`;
+            .replace(/ /g, '_')}.`;
 
         const characterSettings = Object.entries(process.env)
             .filter(([key]) => key.startsWith(characterPrefix))
@@ -274,24 +274,24 @@ export async function loadCharacterFromOnchain(): Promise<Character[]> {
 
         // Handle plugins
         if (isAllStrings(character.plugins)) {
-            elizaLogger.info("Plugins are: ", character.plugins);
+            elizaLogger.info('Plugins are: ', character.plugins);
             const importedPlugins = await Promise.all(
                 character.plugins.map(async (plugin) => {
                     const importedPlugin = await import(plugin);
                     return importedPlugin.default;
-                })
+                }),
             );
             character.plugins = importedPlugins;
         }
 
         loadedCharacters.push(character);
         elizaLogger.info(
-            `Successfully loaded character from: ${process.env.IQ_WALLET_ADDRESS}`
+            `Successfully loaded character from: ${process.env.IQ_WALLET_ADDRESS}`,
         );
         return loadedCharacters;
     } catch (e) {
         elizaLogger.error(
-            `Error parsing character from ${process.env.IQ_WALLET_ADDRESS}: ${e}`
+            `Error parsing character from ${process.env.IQ_WALLET_ADDRESS}: ${e}`,
         );
         process.exit(1);
     }
@@ -305,7 +305,9 @@ async function loadCharactersFromUrl(url: string): Promise<Character[]> {
         let characters: Character[] = [];
         if (Array.isArray(responseJson)) {
             characters = await Promise.all(
-                responseJson.map((character) => jsonToCharacter(url, character))
+                responseJson.map((character) =>
+                    jsonToCharacter(url, character),
+                ),
             );
         } else {
             const character = await jsonToCharacter(url, responseJson);
@@ -320,7 +322,7 @@ async function loadCharactersFromUrl(url: string): Promise<Character[]> {
 
 async function jsonToCharacter(
     filePath: string,
-    character: any
+    character: any,
 ): Promise<Character> {
     validateCharacterConfig(character);
 
@@ -328,7 +330,7 @@ async function jsonToCharacter(
     const characterId = character.id || character.name;
     const characterPrefix = `CHARACTER.${characterId
         .toUpperCase()
-        .replace(/ /g, "_")}.`;
+        .replace(/ /g, '_')}.`;
     const characterSettings = Object.entries(process.env)
         .filter(([key]) => key.startsWith(characterPrefix))
         .reduce((settings, [key, value]) => {
@@ -346,15 +348,15 @@ async function jsonToCharacter(
     character.plugins = await handlePluginImporting(character.plugins);
     if (character.extends) {
         elizaLogger.info(
-            `Merging  ${character.name} character with parent characters`
+            `Merging  ${character.name} character with parent characters`,
         );
         for (const extendPath of character.extends) {
             const baseCharacter = await loadCharacter(
-                path.resolve(path.dirname(filePath), extendPath)
+                path.resolve(path.dirname(filePath), extendPath),
             );
             character = mergeCharacters(baseCharacter, character);
             elizaLogger.info(
-                `Merged ${character.name} with ${baseCharacter.name}`
+                `Merged ${character.name} with ${baseCharacter.name}`,
             );
         }
     }
@@ -372,29 +374,29 @@ async function loadCharacter(filePath: string): Promise<Character> {
 
 async function loadCharacterTryPath(characterPath: string): Promise<Character> {
     let content: string | null = null;
-    let resolvedPath = "";
+    let resolvedPath = '';
 
     // Try different path resolutions in order
     const pathsToTry = [
         characterPath, // exact path as specified
         path.resolve(process.cwd(), characterPath), // relative to cwd
-        path.resolve(process.cwd(), "agent", characterPath), // Add this
+        path.resolve(process.cwd(), 'agent', characterPath), // Add this
         path.resolve(__dirname, characterPath), // relative to current script
-        path.resolve(__dirname, "characters", path.basename(characterPath)), // relative to agent/characters
-        path.resolve(__dirname, "../characters", path.basename(characterPath)), // relative to characters dir from agent
+        path.resolve(__dirname, 'characters', path.basename(characterPath)), // relative to agent/characters
+        path.resolve(__dirname, '../characters', path.basename(characterPath)), // relative to characters dir from agent
         path.resolve(
             __dirname,
-            "../../characters",
-            path.basename(characterPath)
+            '../../characters',
+            path.basename(characterPath),
         ), // relative to project root characters dir
     ];
 
     elizaLogger.info(
-        "Trying paths:",
+        'Trying paths:',
         pathsToTry.map((p) => ({
             path: p,
             exists: fs.existsSync(p),
-        }))
+        })),
     );
 
     for (const tryPath of pathsToTry) {
@@ -407,12 +409,12 @@ async function loadCharacterTryPath(characterPath: string): Promise<Character> {
 
     if (content === null) {
         elizaLogger.error(
-            `Error loading character from ${characterPath}: File not found in any of the expected locations`
+            `Error loading character from ${characterPath}: File not found in any of the expected locations`,
         );
-        elizaLogger.error("Tried the following paths:");
+        elizaLogger.error('Tried the following paths:');
         pathsToTry.forEach((p) => elizaLogger.error(` - ${p}`));
         throw new Error(
-            `Error loading character from ${characterPath}: File not found in any of the expected locations`
+            `Error loading character from ${characterPath}: File not found in any of the expected locations`,
         );
     }
     try {
@@ -426,14 +428,14 @@ async function loadCharacterTryPath(characterPath: string): Promise<Character> {
 }
 
 function commaSeparatedStringToArray(commaSeparated: string): string[] {
-    return commaSeparated?.split(",").map((value) => value.trim());
+    return commaSeparated?.split(',').map((value) => value.trim());
 }
 
 async function readCharactersFromStorage(
-    characterPaths: string[]
+    characterPaths: string[],
 ): Promise<string[]> {
     try {
-        const uploadDir = path.join(process.cwd(), "data", "characters");
+        const uploadDir = path.join(process.cwd(), 'data', 'characters');
         await fs.promises.mkdir(uploadDir, { recursive: true });
         const fileNames = await fs.promises.readdir(uploadDir);
         fileNames.forEach((fileName) => {
@@ -447,11 +449,11 @@ async function readCharactersFromStorage(
 }
 
 export async function loadCharacters(
-    charactersArg: string
+    charactersArg: string,
 ): Promise<Character[]> {
     let characterPaths = commaSeparatedStringToArray(charactersArg);
 
-    if (process.env.USE_CHARACTER_STORAGE === "true") {
+    if (process.env.USE_CHARACTER_STORAGE === 'true') {
         characterPaths = await readCharactersFromStorage(characterPaths);
     }
 
@@ -460,9 +462,8 @@ export async function loadCharacters(
     if (characterPaths?.length > 0) {
         for (const characterPath of characterPaths) {
             try {
-                const character: Character = await loadCharacterTryPath(
-                    characterPath
-                );
+                const character: Character =
+                    await loadCharacterTryPath(characterPath);
                 loadedCharacters.push(character);
             } catch (e) {
                 process.exit(1);
@@ -471,9 +472,9 @@ export async function loadCharacters(
     }
 
     if (hasValidRemoteUrls()) {
-        elizaLogger.info("Loading characters from remote URLs");
+        elizaLogger.info('Loading characters from remote URLs');
         const characterUrls = commaSeparatedStringToArray(
-            process.env.REMOTE_CHARACTER_URLS
+            process.env.REMOTE_CHARACTER_URLS,
         );
         for (const characterUrl of characterUrls) {
             const characters = await loadCharactersFromUrl(characterUrl);
@@ -482,7 +483,7 @@ export async function loadCharacters(
     }
 
     if (loadedCharacters.length === 0) {
-        elizaLogger.info("No characters found, using default character");
+        elizaLogger.info('No characters found, using default character');
         loadedCharacters.push(defaultCharacter);
     }
 
@@ -491,27 +492,27 @@ export async function loadCharacters(
 
 async function handlePluginImporting(plugins: string[]) {
     if (plugins.length > 0) {
-        elizaLogger.info("Plugins are: ", plugins);
+        elizaLogger.info('Plugins are: ', plugins);
         const importedPlugins = await Promise.all(
             plugins.map(async (plugin) => {
                 try {
                     const importedPlugin = await import(plugin);
                     const functionName =
                         plugin
-                            .replace("@elizaos/plugin-", "")
+                            .replace('@elizaos/plugin-', '')
                             .replace(/-./g, (x) => x[1].toUpperCase()) +
-                        "Plugin"; // Assumes plugin function is camelCased with Plugin suffix
+                        'Plugin'; // Assumes plugin function is camelCased with Plugin suffix
                     return (
                         importedPlugin.default || importedPlugin[functionName]
                     );
                 } catch (importError) {
                     elizaLogger.error(
                         `Failed to import plugin: ${plugin}`,
-                        importError
+                        importError,
                     );
                     return []; // Return null for failed imports
                 }
-            })
+            }),
         );
         return importedPlugins;
     } else {
@@ -521,20 +522,20 @@ async function handlePluginImporting(plugins: string[]) {
 
 export function getTokenForProvider(
     provider: ModelProviderName,
-    character: Character
+    character: Character,
 ): string | undefined {
     switch (provider) {
         // no key needed for llama_local, ollama, lmstudio, gaianet or bedrock
         case ModelProviderName.LLAMALOCAL:
-            return "";
+            return '';
         case ModelProviderName.OLLAMA:
-            return "";
+            return '';
         case ModelProviderName.LMSTUDIO:
-            return "";
+            return '';
         case ModelProviderName.GAIANET:
-            return "";
+            return '';
         case ModelProviderName.BEDROCK:
-            return "";
+            return '';
         case ModelProviderName.OPENAI:
             return (
                 character.settings?.secrets?.OPENAI_API_KEY ||
@@ -682,7 +683,7 @@ export function getTokenForProvider(
 
 function initializeDatabase(dataDir: string) {
     if (process.env.MONGODB_CONNECTION_STRING) {
-        elizaLogger.log("Initializing database on MongoDB Atlas");
+        elizaLogger.log('Initializing database on MongoDB Atlas');
         const client = new MongoClient(process.env.MONGODB_CONNECTION_STRING, {
             maxPoolSize: 100,
             minPoolSize: 5,
@@ -690,46 +691,46 @@ function initializeDatabase(dataDir: string) {
             connectTimeoutMS: 10000,
             serverSelectionTimeoutMS: 5000,
             socketTimeoutMS: 45000,
-            compressors: ["zlib"],
+            compressors: ['zlib'],
             retryWrites: true,
             retryReads: true,
         });
 
-        const dbName = process.env.MONGODB_DATABASE || "elizaAgent";
+        const dbName = process.env.MONGODB_DATABASE || 'elizaAgent';
         const db = new MongoDBDatabaseAdapter(client, dbName);
 
         // Test the connection
         db.init()
             .then(() => {
-                elizaLogger.success("Successfully connected to MongoDB Atlas");
+                elizaLogger.success('Successfully connected to MongoDB Atlas');
             })
             .catch((error) => {
-                elizaLogger.error("Failed to connect to MongoDB Atlas:", error);
+                elizaLogger.error('Failed to connect to MongoDB Atlas:', error);
                 throw error; // Re-throw to handle it in the calling code
             });
 
         return db;
     } else if (process.env.SUPABASE_URL && process.env.SUPABASE_ANON_KEY) {
-        elizaLogger.info("Initializing Supabase connection...");
+        elizaLogger.info('Initializing Supabase connection...');
         const db = new SupabaseDatabaseAdapter(
             process.env.SUPABASE_URL,
-            process.env.SUPABASE_ANON_KEY
+            process.env.SUPABASE_ANON_KEY,
         );
 
         // Test the connection
         db.init()
             .then(() => {
                 elizaLogger.success(
-                    "Successfully connected to Supabase database"
+                    'Successfully connected to Supabase database',
                 );
             })
             .catch((error) => {
-                elizaLogger.error("Failed to connect to Supabase:", error);
+                elizaLogger.error('Failed to connect to Supabase:', error);
             });
 
         return db;
     } else if (process.env.POSTGRES_URL) {
-        elizaLogger.info("Initializing PostgreSQL connection...");
+        elizaLogger.info('Initializing PostgreSQL connection...');
         const db = new PostgresDatabaseAdapter({
             connectionString: process.env.POSTGRES_URL,
             parseInputs: true,
@@ -739,16 +740,16 @@ function initializeDatabase(dataDir: string) {
         db.init()
             .then(() => {
                 elizaLogger.success(
-                    "Successfully connected to PostgreSQL database"
+                    'Successfully connected to PostgreSQL database',
                 );
             })
             .catch((error) => {
-                elizaLogger.error("Failed to connect to PostgreSQL:", error);
+                elizaLogger.error('Failed to connect to PostgreSQL:', error);
             });
 
         return db;
     } else if (process.env.PGLITE_DATA_DIR) {
-        elizaLogger.info("Initializing PgLite adapter...");
+        elizaLogger.info('Initializing PgLite adapter...');
         // `dataDir: memory://` for in memory pg
         const db = new PGLiteDatabaseAdapter({
             dataDir: process.env.PGLITE_DATA_DIR,
@@ -760,17 +761,17 @@ function initializeDatabase(dataDir: string) {
         process.env.QDRANT_PORT &&
         process.env.QDRANT_VECTOR_SIZE
     ) {
-        elizaLogger.info("Initializing Qdrant adapter...");
+        elizaLogger.info('Initializing Qdrant adapter...');
         const db = new QdrantDatabaseAdapter(
             process.env.QDRANT_URL,
             process.env.QDRANT_KEY,
             Number(process.env.QDRANT_PORT),
-            Number(process.env.QDRANT_VECTOR_SIZE)
+            Number(process.env.QDRANT_VECTOR_SIZE),
         );
         return db;
     } else {
         const filePath =
-            process.env.SQLITE_FILE ?? path.resolve(dataDir, "db.sqlite");
+            process.env.SQLITE_FILE ?? path.resolve(dataDir, 'db.sqlite');
         elizaLogger.info(`Initializing SQLite database at ${filePath}...`);
         const db = new SqliteDatabaseAdapter(new Database(filePath));
 
@@ -778,11 +779,11 @@ function initializeDatabase(dataDir: string) {
         db.init()
             .then(() => {
                 elizaLogger.success(
-                    "Successfully connected to SQLite database"
+                    'Successfully connected to SQLite database',
                 );
             })
             .catch((error) => {
-                elizaLogger.error("Failed to connect to SQLite:", error);
+                elizaLogger.error('Failed to connect to SQLite:', error);
             });
 
         return db;
@@ -792,14 +793,14 @@ function initializeDatabase(dataDir: string) {
 // also adds plugins from character file into the runtime
 export async function initializeClients(
     character: Character,
-    runtime: IAgentRuntime
+    runtime: IAgentRuntime,
 ) {
     // each client can only register once
     // and if we want two we can explicitly support it
     const clients: Record<string, any> = {};
     const clientTypes: string[] =
         character.clients?.map((str) => str.toLowerCase()) || [];
-    elizaLogger.log("initializeClients", clientTypes, "for", character.name);
+    elizaLogger.log('initializeClients', clientTypes, 'for', character.name);
 
     // Start Auto Client if "auto" detected as a configured client
     if (clientTypes.includes(Clients.AUTO)) {
@@ -857,7 +858,7 @@ export async function initializeClients(
         }
     }
 
-    if (clientTypes.includes("lens")) {
+    if (clientTypes.includes('lens')) {
         const lensClient = new LensAgentClient(runtime);
         lensClient.start();
         clients.lens = lensClient;
@@ -868,30 +869,30 @@ export async function initializeClients(
         if (simsaiClient) clients.simsai = simsaiClient;
     }
 
-    elizaLogger.log("client keys", Object.keys(clients));
+    elizaLogger.log('client keys', Object.keys(clients));
 
-    if (clientTypes.includes("deva")) {
-        if (clientTypes.includes("deva")) {
+    if (clientTypes.includes('deva')) {
+        if (clientTypes.includes('deva')) {
             const devaClient = await DevaClientInterface.start(runtime);
             if (devaClient) clients.deva = devaClient;
         }
     }
 
-    if (clientTypes.includes("slack")) {
+    if (clientTypes.includes('slack')) {
         const slackClient = await SlackClientInterface.start(runtime);
         if (slackClient) clients.slack = slackClient; // Use object property instead of push
     }
 
     function determineClientType(client: Client): string {
         // Check if client has a direct type identifier
-        if ("type" in client) {
+        if ('type' in client) {
             return (client as any).type;
         }
 
         // Check constructor name
         const constructorName = client.constructor?.name;
-        if (constructorName && !constructorName.includes("Object")) {
-            return constructorName.toLowerCase().replace("client", "");
+        if (constructorName && !constructorName.includes('Object')) {
+            return constructorName.toLowerCase().replace('client', '');
         }
 
         // Fallback: Generate a unique identifier
@@ -905,7 +906,7 @@ export async function initializeClients(
                     const startedClient = await client.start(runtime);
                     const clientType = determineClientType(client);
                     elizaLogger.debug(
-                        `Initializing client of type: ${clientType}`
+                        `Initializing client of type: ${clientType}`,
                     );
                     clients[clientType] = startedClient;
                 }
@@ -926,35 +927,35 @@ export async function createAgent(
     character: Character,
     db: IDatabaseAdapter,
     cache: ICacheManager,
-    token: string
+    token: string,
 ): Promise<AgentRuntime> {
     elizaLogger.log(`Creating runtime for character ${character.name}`);
 
     nodePlugin ??= createNodePlugin();
 
-    const teeMode = getSecret(character, "TEE_MODE") || "OFF";
-    const walletSecretSalt = getSecret(character, "WALLET_SECRET_SALT");
+    const teeMode = getSecret(character, 'TEE_MODE') || 'OFF';
+    const walletSecretSalt = getSecret(character, 'WALLET_SECRET_SALT');
 
     // Validate TEE configuration
     if (teeMode !== TEEMode.OFF && !walletSecretSalt) {
         elizaLogger.error(
-            "A WALLET_SECRET_SALT required when TEE_MODE is enabled"
+            'A WALLET_SECRET_SALT required when TEE_MODE is enabled',
         );
-        throw new Error("Invalid TEE configuration");
+        throw new Error('Invalid TEE configuration');
     }
 
     let goatPlugin: any | undefined;
 
-    if (getSecret(character, "EVM_PRIVATE_KEY")) {
+    if (getSecret(character, 'EVM_PRIVATE_KEY')) {
         goatPlugin = await createGoatPlugin((secret) =>
-            getSecret(character, secret)
+            getSecret(character, secret),
         );
     }
 
     let zilliqaPlugin: any | undefined;
-    if (getSecret(character, "ZILLIQA_PRIVATE_KEY")) {
+    if (getSecret(character, 'ZILLIQA_PRIVATE_KEY')) {
         zilliqaPlugin = await createZilliqaPlugin((secret) =>
-            getSecret(character, secret)
+            getSecret(character, secret),
         );
     }
 
@@ -979,7 +980,7 @@ export async function createAgent(
         process.env.OPACITY_TEAM_ID &&
         process.env.OPACITY_CLOUDFLARE_NAME &&
         process.env.OPACITY_PROVER_URL &&
-        process.env.VERIFIABLE_INFERENCE_ENABLED === "true"
+        process.env.VERIFIABLE_INFERENCE_ENABLED === 'true'
     ) {
         verifiableInferenceAdapter = new OpacityAdapter({
             teamId: process.env.OPACITY_TEAM_ID,
@@ -988,26 +989,26 @@ export async function createAgent(
             modelProvider: character.modelProvider,
             token: token,
         });
-        elizaLogger.log("Verifiable inference adapter initialized");
-        elizaLogger.log("teamId", process.env.OPACITY_TEAM_ID);
-        elizaLogger.log("teamName", process.env.OPACITY_CLOUDFLARE_NAME);
-        elizaLogger.log("opacityProverUrl", process.env.OPACITY_PROVER_URL);
-        elizaLogger.log("modelProvider", character.modelProvider);
-        elizaLogger.log("token", token);
+        elizaLogger.log('Verifiable inference adapter initialized');
+        elizaLogger.log('teamId', process.env.OPACITY_TEAM_ID);
+        elizaLogger.log('teamName', process.env.OPACITY_CLOUDFLARE_NAME);
+        elizaLogger.log('opacityProverUrl', process.env.OPACITY_PROVER_URL);
+        elizaLogger.log('modelProvider', character.modelProvider);
+        elizaLogger.log('token', token);
     }
     if (
         process.env.PRIMUS_APP_ID &&
         process.env.PRIMUS_APP_SECRET &&
-        process.env.VERIFIABLE_INFERENCE_ENABLED === "true"
+        process.env.VERIFIABLE_INFERENCE_ENABLED === 'true'
     ) {
         verifiableInferenceAdapter = new PrimusAdapter({
             appId: process.env.PRIMUS_APP_ID,
             appSecret: process.env.PRIMUS_APP_SECRET,
-            attMode: "proxytls",
+            attMode: 'proxytls',
             modelProvider: character.modelProvider,
             token,
         });
-        elizaLogger.log("Verifiable inference primus adapter initialized");
+        elizaLogger.log('Verifiable inference primus adapter initialized');
     }
 
     return new AgentRuntime({
@@ -1018,99 +1019,99 @@ export async function createAgent(
         character,
         // character.plugins are handled when clients are added
         plugins: [
-            parseBooleanFromText(getSecret(character, "BITMIND")) &&
-            getSecret(character, "BITMIND_API_TOKEN")
+            parseBooleanFromText(getSecret(character, 'BITMIND')) &&
+            getSecret(character, 'BITMIND_API_TOKEN')
                 ? bittensorPlugin
                 : null,
             parseBooleanFromText(
-                getSecret(character, "EMAIL_AUTOMATION_ENABLED")
+                getSecret(character, 'EMAIL_AUTOMATION_ENABLED'),
             )
                 ? emailAutomationPlugin
                 : null,
-            getSecret(character, "IQ_WALLET_ADDRESS") &&
-            getSecret(character, "IQSOlRPC")
+            getSecret(character, 'IQ_WALLET_ADDRESS') &&
+            getSecret(character, 'IQSOlRPC')
                 ? elizaCodeinPlugin
                 : null,
             bootstrapPlugin,
-            getSecret(character, "CDP_API_KEY_NAME") &&
-            getSecret(character, "CDP_API_KEY_PRIVATE_KEY") &&
-            getSecret(character, "CDP_AGENT_KIT_NETWORK")
+            getSecret(character, 'CDP_API_KEY_NAME') &&
+            getSecret(character, 'CDP_API_KEY_PRIVATE_KEY') &&
+            getSecret(character, 'CDP_AGENT_KIT_NETWORK')
                 ? agentKitPlugin
                 : null,
-            getSecret(character, "DEXSCREENER_API_KEY")
+            getSecret(character, 'DEXSCREENER_API_KEY')
                 ? dexScreenerPlugin
                 : null,
-            getSecret(character, "FOOTBALL_API_KEY") ? footballPlugin : null,
-            getSecret(character, "CONFLUX_CORE_PRIVATE_KEY")
+            getSecret(character, 'FOOTBALL_API_KEY') ? footballPlugin : null,
+            getSecret(character, 'CONFLUX_CORE_PRIVATE_KEY')
                 ? confluxPlugin
                 : null,
             nodePlugin,
-            getSecret(character, "ROUTER_NITRO_EVM_PRIVATE_KEY") &&
-            getSecret(character, "ROUTER_NITRO_EVM_ADDRESS")
+            getSecret(character, 'ROUTER_NITRO_EVM_PRIVATE_KEY') &&
+            getSecret(character, 'ROUTER_NITRO_EVM_ADDRESS')
                 ? nitroPlugin
                 : null,
-            getSecret(character, "TAVILY_API_KEY") ? webSearchPlugin : null,
-            getSecret(character, "SOLANA_PUBLIC_KEY") ||
-            (getSecret(character, "WALLET_PUBLIC_KEY") &&
-                !getSecret(character, "WALLET_PUBLIC_KEY")?.startsWith("0x"))
+            getSecret(character, 'TAVILY_API_KEY') ? webSearchPlugin : null,
+            getSecret(character, 'SOLANA_PUBLIC_KEY') ||
+            (getSecret(character, 'WALLET_PUBLIC_KEY') &&
+                !getSecret(character, 'WALLET_PUBLIC_KEY')?.startsWith('0x'))
                 ? [solanaPlugin, solanaPluginV2]
                 : null,
-            getSecret(character, "SOLANA_PRIVATE_KEY")
+            getSecret(character, 'SOLANA_PRIVATE_KEY')
                 ? solanaAgentkitPlugin
                 : null,
-            getSecret(character, "AUTONOME_JWT_TOKEN") ? autonomePlugin : null,
-            (getSecret(character, "NEAR_ADDRESS") ||
-                getSecret(character, "NEAR_WALLET_PUBLIC_KEY")) &&
-            getSecret(character, "NEAR_WALLET_SECRET_KEY")
+            getSecret(character, 'AUTONOME_JWT_TOKEN') ? autonomePlugin : null,
+            (getSecret(character, 'NEAR_ADDRESS') ||
+                getSecret(character, 'NEAR_WALLET_PUBLIC_KEY')) &&
+            getSecret(character, 'NEAR_WALLET_SECRET_KEY')
                 ? nearPlugin
                 : null,
-            getSecret(character, "EVM_PUBLIC_KEY") ||
-            (getSecret(character, "WALLET_PUBLIC_KEY") &&
-                getSecret(character, "WALLET_PUBLIC_KEY")?.startsWith("0x"))
+            getSecret(character, 'EVM_PUBLIC_KEY') ||
+            (getSecret(character, 'WALLET_PUBLIC_KEY') &&
+                getSecret(character, 'WALLET_PUBLIC_KEY')?.startsWith('0x'))
                 ? evmPlugin
                 : null,
-            (getSecret(character, "EVM_PRIVATE_KEY") ||
-                getSecret(character, "SOLANA_PRIVATE_KEY"))
+            getSecret(character, 'EVM_PRIVATE_KEY') ||
+            getSecret(character, 'SOLANA_PRIVATE_KEY')
                 ? edwinPlugin
                 : null,
-            (getSecret(character, "EVM_PUBLIC_KEY") ||
-                getSecret(character, "INJECTIVE_PUBLIC_KEY")) &&
-            getSecret(character, "INJECTIVE_PRIVATE_KEY")
+            (getSecret(character, 'EVM_PUBLIC_KEY') ||
+                getSecret(character, 'INJECTIVE_PUBLIC_KEY')) &&
+            getSecret(character, 'INJECTIVE_PRIVATE_KEY')
                 ? injectivePlugin
                 : null,
-            getSecret(character, "COSMOS_RECOVERY_PHRASE") &&
-                getSecret(character, "COSMOS_AVAILABLE_CHAINS") &&
+            getSecret(character, 'COSMOS_RECOVERY_PHRASE') &&
+                getSecret(character, 'COSMOS_AVAILABLE_CHAINS') &&
                 createCosmosPlugin(),
-            (getSecret(character, "SOLANA_PUBLIC_KEY") ||
-                (getSecret(character, "WALLET_PUBLIC_KEY") &&
-                    !getSecret(character, "WALLET_PUBLIC_KEY")?.startsWith(
-                        "0x"
+            (getSecret(character, 'SOLANA_PUBLIC_KEY') ||
+                (getSecret(character, 'WALLET_PUBLIC_KEY') &&
+                    !getSecret(character, 'WALLET_PUBLIC_KEY')?.startsWith(
+                        '0x',
                     ))) &&
-            getSecret(character, "SOLANA_ADMIN_PUBLIC_KEY") &&
-            getSecret(character, "SOLANA_PRIVATE_KEY") &&
-            getSecret(character, "SOLANA_ADMIN_PRIVATE_KEY")
+            getSecret(character, 'SOLANA_ADMIN_PUBLIC_KEY') &&
+            getSecret(character, 'SOLANA_PRIVATE_KEY') &&
+            getSecret(character, 'SOLANA_ADMIN_PRIVATE_KEY')
                 ? nftGenerationPlugin
                 : null,
-            getSecret(character, "ZEROG_PRIVATE_KEY") ? zgPlugin : null,
-            getSecret(character, "COINMARKETCAP_API_KEY")
+            getSecret(character, 'ZEROG_PRIVATE_KEY') ? zgPlugin : null,
+            getSecret(character, 'COINMARKETCAP_API_KEY')
                 ? coinmarketcapPlugin
                 : null,
-            getSecret(character, "ZERION_API_KEY") ? zerionPlugin : null,
-            getSecret(character, "COINBASE_COMMERCE_KEY")
+            getSecret(character, 'ZERION_API_KEY') ? zerionPlugin : null,
+            getSecret(character, 'COINBASE_COMMERCE_KEY')
                 ? coinbaseCommercePlugin
                 : null,
-            getSecret(character, "FAL_API_KEY") ||
-            getSecret(character, "OPENAI_API_KEY") ||
-            getSecret(character, "VENICE_API_KEY") ||
-            getSecret(character, "NVIDIA_API_KEY") ||
-            getSecret(character, "NINETEEN_AI_API_KEY") ||
-            getSecret(character, "HEURIST_API_KEY") ||
-            getSecret(character, "LIVEPEER_GATEWAY_URL")
+            getSecret(character, 'FAL_API_KEY') ||
+            getSecret(character, 'OPENAI_API_KEY') ||
+            getSecret(character, 'VENICE_API_KEY') ||
+            getSecret(character, 'NVIDIA_API_KEY') ||
+            getSecret(character, 'NINETEEN_AI_API_KEY') ||
+            getSecret(character, 'HEURIST_API_KEY') ||
+            getSecret(character, 'LIVEPEER_GATEWAY_URL')
                 ? imageGenerationPlugin
                 : null,
-            getSecret(character, "FAL_API_KEY") ? ThreeDGenerationPlugin : null,
-            ...(getSecret(character, "COINBASE_API_KEY") &&
-            getSecret(character, "COINBASE_PRIVATE_KEY")
+            getSecret(character, 'FAL_API_KEY') ? ThreeDGenerationPlugin : null,
+            ...(getSecret(character, 'COINBASE_API_KEY') &&
+            getSecret(character, 'COINBASE_PRIVATE_KEY')
                 ? [
                       coinbaseMassPaymentsPlugin,
                       tradePlugin,
@@ -1121,188 +1122,188 @@ export async function createAgent(
             ...(teeMode !== TEEMode.OFF && walletSecretSalt ? [teePlugin] : []),
             teeMode !== TEEMode.OFF &&
             walletSecretSalt &&
-            getSecret(character, "VLOG")
+            getSecret(character, 'VLOG')
                 ? verifiableLogPlugin
                 : null,
-            getSecret(character, "SGX") ? sgxPlugin : null,
-            getSecret(character, "ENABLE_TEE_LOG") &&
+            getSecret(character, 'SGX') ? sgxPlugin : null,
+            getSecret(character, 'ENABLE_TEE_LOG') &&
             ((teeMode !== TEEMode.OFF && walletSecretSalt) ||
-                getSecret(character, "SGX"))
+                getSecret(character, 'SGX'))
                 ? teeLogPlugin
                 : null,
-            getSecret(character, "OMNIFLIX_API_URL") &&
-            getSecret(character, "OMNIFLIX_MNEMONIC")
+            getSecret(character, 'OMNIFLIX_API_URL') &&
+            getSecret(character, 'OMNIFLIX_MNEMONIC')
                 ? OmniflixPlugin
                 : null,
-            getSecret(character, "COINBASE_API_KEY") &&
-            getSecret(character, "COINBASE_PRIVATE_KEY") &&
-            getSecret(character, "COINBASE_NOTIFICATION_URI")
+            getSecret(character, 'COINBASE_API_KEY') &&
+            getSecret(character, 'COINBASE_PRIVATE_KEY') &&
+            getSecret(character, 'COINBASE_NOTIFICATION_URI')
                 ? webhookPlugin
                 : null,
             goatPlugin,
             zilliqaPlugin,
-            getSecret(character, "COINGECKO_API_KEY") ||
-            getSecret(character, "COINGECKO_PRO_API_KEY")
+            getSecret(character, 'COINGECKO_API_KEY') ||
+            getSecret(character, 'COINGECKO_PRO_API_KEY')
                 ? coingeckoPlugin
                 : null,
-            getSecret(character, "MORALIS_API_KEY") ? moralisPlugin : null,
-            getSecret(character, "EVM_PROVIDER_URL") ? goatPlugin : null,
-            getSecret(character, "ABSTRACT_PRIVATE_KEY")
+            getSecret(character, 'MORALIS_API_KEY') ? moralisPlugin : null,
+            getSecret(character, 'EVM_PROVIDER_URL') ? goatPlugin : null,
+            getSecret(character, 'ABSTRACT_PRIVATE_KEY')
                 ? abstractPlugin
                 : null,
-            getSecret(character, "B2_PRIVATE_KEY") ? b2Plugin : null,
-            getSecret(character, "BINANCE_API_KEY") &&
-            getSecret(character, "BINANCE_SECRET_KEY")
+            getSecret(character, 'B2_PRIVATE_KEY') ? b2Plugin : null,
+            getSecret(character, 'BINANCE_API_KEY') &&
+            getSecret(character, 'BINANCE_SECRET_KEY')
                 ? binancePlugin
                 : null,
-            getSecret(character, "FLOW_ADDRESS") &&
-            getSecret(character, "FLOW_PRIVATE_KEY")
+            getSecret(character, 'FLOW_ADDRESS') &&
+            getSecret(character, 'FLOW_PRIVATE_KEY')
                 ? flowPlugin
                 : null,
-            getSecret(character, "LENS_ADDRESS") &&
-            getSecret(character, "LENS_PRIVATE_KEY")
+            getSecret(character, 'LENS_ADDRESS') &&
+            getSecret(character, 'LENS_PRIVATE_KEY')
                 ? lensPlugin
                 : null,
-            getSecret(character, "APTOS_PRIVATE_KEY") ? aptosPlugin : null,
-            getSecret(character, "MIND_COLD_WALLET_ADDRESS")
+            getSecret(character, 'APTOS_PRIVATE_KEY') ? aptosPlugin : null,
+            getSecret(character, 'MIND_COLD_WALLET_ADDRESS')
                 ? mindNetworkPlugin
                 : null,
-            getSecret(character, "MVX_PRIVATE_KEY") ? multiversxPlugin : null,
-            getSecret(character, "ZKSYNC_PRIVATE_KEY") ? zksyncEraPlugin : null,
-            getSecret(character, "CRONOSZKEVM_PRIVATE_KEY")
+            getSecret(character, 'MVX_PRIVATE_KEY') ? multiversxPlugin : null,
+            getSecret(character, 'ZKSYNC_PRIVATE_KEY') ? zksyncEraPlugin : null,
+            getSecret(character, 'CRONOSZKEVM_PRIVATE_KEY')
                 ? cronosZkEVMPlugin
                 : null,
-            getSecret(character, "TEE_MARLIN") ? teeMarlinPlugin : null,
-            getSecret(character, "TON_PRIVATE_KEY") ? tonPlugin : null,
-            getSecret(character, "THIRDWEB_SECRET_KEY") ? thirdwebPlugin : null,
-            getSecret(character, "SUI_PRIVATE_KEY") ? suiPlugin : null,
-            getSecret(character, "STORY_PRIVATE_KEY") ? storyPlugin : null,
-            getSecret(character, "SQUID_SDK_URL") &&
-            getSecret(character, "SQUID_INTEGRATOR_ID") &&
-            getSecret(character, "SQUID_EVM_ADDRESS") &&
-            getSecret(character, "SQUID_EVM_PRIVATE_KEY") &&
-            getSecret(character, "SQUID_API_THROTTLE_INTERVAL")
+            getSecret(character, 'TEE_MARLIN') ? teeMarlinPlugin : null,
+            getSecret(character, 'TON_PRIVATE_KEY') ? tonPlugin : null,
+            getSecret(character, 'THIRDWEB_SECRET_KEY') ? thirdwebPlugin : null,
+            getSecret(character, 'SUI_PRIVATE_KEY') ? suiPlugin : null,
+            getSecret(character, 'STORY_PRIVATE_KEY') ? storyPlugin : null,
+            getSecret(character, 'SQUID_SDK_URL') &&
+            getSecret(character, 'SQUID_INTEGRATOR_ID') &&
+            getSecret(character, 'SQUID_EVM_ADDRESS') &&
+            getSecret(character, 'SQUID_EVM_PRIVATE_KEY') &&
+            getSecret(character, 'SQUID_API_THROTTLE_INTERVAL')
                 ? squidRouterPlugin
                 : null,
-            getSecret(character, "FUEL_PRIVATE_KEY") ? fuelPlugin : null,
-            getSecret(character, "AVALANCHE_PRIVATE_KEY")
+            getSecret(character, 'FUEL_PRIVATE_KEY') ? fuelPlugin : null,
+            getSecret(character, 'AVALANCHE_PRIVATE_KEY')
                 ? avalanchePlugin
                 : null,
-            getSecret(character, "BIRDEYE_API_KEY") ? birdeyePlugin : null,
-            getSecret(character, "ECHOCHAMBERS_API_URL") &&
-            getSecret(character, "ECHOCHAMBERS_API_KEY")
+            getSecret(character, 'BIRDEYE_API_KEY') ? birdeyePlugin : null,
+            getSecret(character, 'ECHOCHAMBERS_API_URL') &&
+            getSecret(character, 'ECHOCHAMBERS_API_KEY')
                 ? echoChambersPlugin
                 : null,
-            getSecret(character, "LETZAI_API_KEY") ? letzAIPlugin : null,
-            getSecret(character, "STARGAZE_ENDPOINT") ? stargazePlugin : null,
-            getSecret(character, "GIPHY_API_KEY") ? giphyPlugin : null,
-            getSecret(character, "PASSPORT_API_KEY")
+            getSecret(character, 'LETZAI_API_KEY') ? letzAIPlugin : null,
+            getSecret(character, 'STARGAZE_ENDPOINT') ? stargazePlugin : null,
+            getSecret(character, 'GIPHY_API_KEY') ? giphyPlugin : null,
+            getSecret(character, 'PASSPORT_API_KEY')
                 ? gitcoinPassportPlugin
                 : null,
-            getSecret(character, "GENLAYER_PRIVATE_KEY")
+            getSecret(character, 'GENLAYER_PRIVATE_KEY')
                 ? genLayerPlugin
                 : null,
-            getSecret(character, "AVAIL_SEED") &&
-            getSecret(character, "AVAIL_APP_ID")
+            getSecret(character, 'AVAIL_SEED') &&
+            getSecret(character, 'AVAIL_APP_ID')
                 ? availPlugin
                 : null,
-            getSecret(character, "OPEN_WEATHER_API_KEY")
+            getSecret(character, 'OPEN_WEATHER_API_KEY')
                 ? openWeatherPlugin
                 : null,
-            getSecret(character, "OBSIDIAN_API_TOKEN") ? obsidianPlugin : null,
-            getSecret(character, "ARTHERA_PRIVATE_KEY")?.startsWith("0x")
+            getSecret(character, 'OBSIDIAN_API_TOKEN') ? obsidianPlugin : null,
+            getSecret(character, 'ARTHERA_PRIVATE_KEY')?.startsWith('0x')
                 ? artheraPlugin
                 : null,
-            getSecret(character, "ALLORA_API_KEY") ? alloraPlugin : null,
-            getSecret(character, "HYPERLIQUID_PRIVATE_KEY")
+            getSecret(character, 'ALLORA_API_KEY') ? alloraPlugin : null,
+            getSecret(character, 'HYPERLIQUID_PRIVATE_KEY')
                 ? hyperliquidPlugin
                 : null,
-            getSecret(character, "HYPERLIQUID_TESTNET")
+            getSecret(character, 'HYPERLIQUID_TESTNET')
                 ? hyperliquidPlugin
                 : null,
-            getSecret(character, "AKASH_MNEMONIC") &&
-            getSecret(character, "AKASH_WALLET_ADDRESS")
+            getSecret(character, 'AKASH_MNEMONIC') &&
+            getSecret(character, 'AKASH_WALLET_ADDRESS')
                 ? akashPlugin
                 : null,
-            getSecret(character, "CHAINBASE_API_KEY") ? chainbasePlugin : null,
-            getSecret(character, "QUAI_PRIVATE_KEY") ? quaiPlugin : null,
-            getSecret(character, "RESERVOIR_API_KEY")
+            getSecret(character, 'CHAINBASE_API_KEY') ? chainbasePlugin : null,
+            getSecret(character, 'QUAI_PRIVATE_KEY') ? quaiPlugin : null,
+            getSecret(character, 'RESERVOIR_API_KEY')
                 ? createNFTCollectionsPlugin()
                 : null,
-            getSecret(character, "ZERO_EX_API_KEY") ? zxPlugin : null,
-            getSecret(character, "DKG_PRIVATE_KEY") ? dkgPlugin : null,
-            getSecret(character, "PYTH_TESTNET_PROGRAM_KEY") ||
-            getSecret(character, "PYTH_MAINNET_PROGRAM_KEY")
+            getSecret(character, 'ZERO_EX_API_KEY') ? zxPlugin : null,
+            getSecret(character, 'DKG_PRIVATE_KEY') ? dkgPlugin : null,
+            getSecret(character, 'PYTH_TESTNET_PROGRAM_KEY') ||
+            getSecret(character, 'PYTH_MAINNET_PROGRAM_KEY')
                 ? pythDataPlugin
                 : null,
-            getSecret(character, "LND_TLS_CERT") &&
-            getSecret(character, "LND_MACAROON") &&
-            getSecret(character, "LND_SOCKET")
+            getSecret(character, 'LND_TLS_CERT') &&
+            getSecret(character, 'LND_MACAROON') &&
+            getSecret(character, 'LND_SOCKET')
                 ? lightningPlugin
                 : null,
-            getSecret(character, "OPENAI_API_KEY") &&
+            getSecret(character, 'OPENAI_API_KEY') &&
             parseBooleanFromText(
-                getSecret(character, "ENABLE_OPEN_AI_COMMUNITY_PLUGIN")
+                getSecret(character, 'ENABLE_OPEN_AI_COMMUNITY_PLUGIN'),
             )
                 ? openaiPlugin
                 : null,
-            getSecret(character, "DEVIN_API_TOKEN") ? devinPlugin : null,
-            getSecret(character, "INITIA_PRIVATE_KEY") ? initiaPlugin : null,
-            getSecret(character, "HOLDSTATION_PRIVATE_KEY")
+            getSecret(character, 'DEVIN_API_TOKEN') ? devinPlugin : null,
+            getSecret(character, 'INITIA_PRIVATE_KEY') ? initiaPlugin : null,
+            getSecret(character, 'HOLDSTATION_PRIVATE_KEY')
                 ? holdstationPlugin
                 : null,
-            getSecret(character, "NVIDIA_NIM_API_KEY") ||
-            getSecret(character, "NVIDIA_NGC_API_KEY")
+            getSecret(character, 'NVIDIA_NIM_API_KEY') ||
+            getSecret(character, 'NVIDIA_NGC_API_KEY')
                 ? nvidiaNimPlugin
                 : null,
-            getSecret(character, "BNB_PRIVATE_KEY") ||
-            getSecret(character, "BNB_PUBLIC_KEY")?.startsWith("0x")
+            getSecret(character, 'BNB_PRIVATE_KEY') ||
+            getSecret(character, 'BNB_PUBLIC_KEY')?.startsWith('0x')
                 ? bnbPlugin
                 : null,
-            (getSecret(character, "EMAIL_INCOMING_USER") &&
-                getSecret(character, "EMAIL_INCOMING_PASS")) ||
-            (getSecret(character, "EMAIL_OUTGOING_USER") &&
-                getSecret(character, "EMAIL_OUTGOING_PASS"))
+            (getSecret(character, 'EMAIL_INCOMING_USER') &&
+                getSecret(character, 'EMAIL_INCOMING_PASS')) ||
+            (getSecret(character, 'EMAIL_OUTGOING_USER') &&
+                getSecret(character, 'EMAIL_OUTGOING_PASS'))
                 ? emailPlugin
                 : null,
-            getSecret(character, "SEI_PRIVATE_KEY") ? seiPlugin : null,
-            getSecret(character, "HYPERBOLIC_API_KEY")
+            getSecret(character, 'SEI_PRIVATE_KEY') ? seiPlugin : null,
+            getSecret(character, 'HYPERBOLIC_API_KEY')
                 ? hyperbolicPlugin
                 : null,
-            getSecret(character, "SUNO_API_KEY") ? sunoPlugin : null,
-            getSecret(character, "UDIO_AUTH_TOKEN") ? udioPlugin : null,
-            getSecret(character, "IMGFLIP_USERNAME") &&
-            getSecret(character, "IMGFLIP_PASSWORD")
+            getSecret(character, 'SUNO_API_KEY') ? sunoPlugin : null,
+            getSecret(character, 'UDIO_AUTH_TOKEN') ? udioPlugin : null,
+            getSecret(character, 'IMGFLIP_USERNAME') &&
+            getSecret(character, 'IMGFLIP_PASSWORD')
                 ? imgflipPlugin
                 : null,
-            getSecret(character, "FUNDING_PRIVATE_KEY") &&
-            getSecret(character, "EVM_RPC_URL")
+            getSecret(character, 'FUNDING_PRIVATE_KEY') &&
+            getSecret(character, 'EVM_RPC_URL')
                 ? litPlugin
                 : null,
-            getSecret(character, "ETHSTORAGE_PRIVATE_KEY")
+            getSecret(character, 'ETHSTORAGE_PRIVATE_KEY')
                 ? ethstoragePlugin
                 : null,
-            getSecret(character, "MINA_PRIVATE_KEY") ? minaPlugin : null,
-            getSecret(character, "FORM_PRIVATE_KEY") ? formPlugin : null,
-            getSecret(character, "ANKR_WALLET") ? ankrPlugin : null,
-            getSecret(character, "DCAP_EVM_PRIVATE_KEY") &&
-            getSecret(character, "DCAP_MODE")
+            getSecret(character, 'MINA_PRIVATE_KEY') ? minaPlugin : null,
+            getSecret(character, 'FORM_PRIVATE_KEY') ? formPlugin : null,
+            getSecret(character, 'ANKR_WALLET') ? ankrPlugin : null,
+            getSecret(character, 'DCAP_EVM_PRIVATE_KEY') &&
+            getSecret(character, 'DCAP_MODE')
                 ? dcapPlugin
                 : null,
-            getSecret(character, "QUICKINTEL_API_KEY")
+            getSecret(character, 'QUICKINTEL_API_KEY')
                 ? quickIntelPlugin
                 : null,
-            getSecret(character, "GELATO_RELAY_API_KEY") ? gelatoPlugin : null,
-            getSecret(character, "TRIKON_WALLET_ADDRESS") ? trikonPlugin : null,
-            getSecret(character, "ARBITRAGE_EVM_PRIVATE_KEY") &&
-            (getSecret(character, "ARBITRAGE_EVM_PROVIDER_URL") ||
-                getSecret(character, "ARBITRAGE_ETHEREUM_WS_URL")) &&
-            getSecret(character, "ARBITRAGE_FLASHBOTS_RELAY_SIGNING_KEY") &&
-            getSecret(character, "ARBITRAGE_BUNDLE_EXECUTOR_ADDRESS")
+            getSecret(character, 'GELATO_RELAY_API_KEY') ? gelatoPlugin : null,
+            getSecret(character, 'TRIKON_WALLET_ADDRESS') ? trikonPlugin : null,
+            getSecret(character, 'ARBITRAGE_EVM_PRIVATE_KEY') &&
+            (getSecret(character, 'ARBITRAGE_EVM_PROVIDER_URL') ||
+                getSecret(character, 'ARBITRAGE_ETHEREUM_WS_URL')) &&
+            getSecret(character, 'ARBITRAGE_FLASHBOTS_RELAY_SIGNING_KEY') &&
+            getSecret(character, 'ARBITRAGE_BUNDLE_EXECUTOR_ADDRESS')
                 ? arbitragePlugin
                 : null,
-            getSecret(character, "DESK_EXCHANGE_PRIVATE_KEY") ||
-            getSecret(character, "DESK_EXCHANGE_NETWORK")
+            getSecret(character, 'DESK_EXCHANGE_PRIVATE_KEY') ||
+            getSecret(character, 'DESK_EXCHANGE_NETWORK')
                 ? deskExchangePlugin
                 : null,
         ]
@@ -1319,10 +1320,10 @@ export async function createAgent(
 function initializeFsCache(baseDir: string, character: Character) {
     if (!character?.id) {
         throw new Error(
-            "initializeFsCache requires id to be set in character definition"
+            'initializeFsCache requires id to be set in character definition',
         );
     }
-    const cacheDir = path.resolve(baseDir, character.id, "cache");
+    const cacheDir = path.resolve(baseDir, character.id, 'cache');
 
     const cache = new CacheManager(new FsCacheAdapter(cacheDir));
     return cache;
@@ -1331,7 +1332,7 @@ function initializeFsCache(baseDir: string, character: Character) {
 function initializeDbCache(character: Character, db: IDatabaseCacheAdapter) {
     if (!character?.id) {
         throw new Error(
-            "initializeFsCache requires id to be set in character definition"
+            'initializeFsCache requires id to be set in character definition',
         );
     }
     const cache = new CacheManager(new DbCacheAdapter(db, character.id));
@@ -1342,54 +1343,54 @@ function initializeCache(
     cacheStore: string,
     character: Character,
     baseDir?: string,
-    db?: IDatabaseCacheAdapter
+    db?: IDatabaseCacheAdapter,
 ) {
     switch (cacheStore) {
         case CacheStore.REDIS:
             if (process.env.REDIS_URL) {
-                elizaLogger.info("Connecting to Redis...");
+                elizaLogger.info('Connecting to Redis...');
                 const redisClient = new RedisClient(process.env.REDIS_URL);
                 if (!character?.id) {
                     throw new Error(
-                        "CacheStore.REDIS requires id to be set in character definition"
+                        'CacheStore.REDIS requires id to be set in character definition',
                     );
                 }
                 return new CacheManager(
-                    new DbCacheAdapter(redisClient, character.id) // Using DbCacheAdapter since RedisClient also implements IDatabaseCacheAdapter
+                    new DbCacheAdapter(redisClient, character.id), // Using DbCacheAdapter since RedisClient also implements IDatabaseCacheAdapter
                 );
             } else {
-                throw new Error("REDIS_URL environment variable is not set.");
+                throw new Error('REDIS_URL environment variable is not set.');
             }
 
         case CacheStore.DATABASE:
             if (db) {
-                elizaLogger.info("Using Database Cache...");
+                elizaLogger.info('Using Database Cache...');
                 return initializeDbCache(character, db);
             } else {
                 throw new Error(
-                    "Database adapter is not provided for CacheStore.Database."
+                    'Database adapter is not provided for CacheStore.Database.',
                 );
             }
 
         case CacheStore.FILESYSTEM:
-            elizaLogger.info("Using File System Cache...");
+            elizaLogger.info('Using File System Cache...');
             if (!baseDir) {
                 throw new Error(
-                    "baseDir must be provided for CacheStore.FILESYSTEM."
+                    'baseDir must be provided for CacheStore.FILESYSTEM.',
                 );
             }
             return initializeFsCache(baseDir, character);
 
         default:
             throw new Error(
-                `Invalid cache store: ${cacheStore} or required configuration missing.`
+                `Invalid cache store: ${cacheStore} or required configuration missing.`,
             );
     }
 }
 
 async function startAgent(
     character: Character,
-    directClient: DirectClient
+    directClient: DirectClient,
 ): Promise<AgentRuntime> {
     let db: IDatabaseAdapter & IDatabaseCacheAdapter;
     try {
@@ -1397,7 +1398,7 @@ async function startAgent(
         character.username ??= character.name;
 
         const token = getTokenForProvider(character.modelProvider, character);
-        const dataDir = path.join(__dirname, "../data");
+        const dataDir = path.join(__dirname, '../data');
 
         if (!fs.existsSync(dataDir)) {
             fs.mkdirSync(dataDir, { recursive: true });
@@ -1411,14 +1412,14 @@ async function startAgent(
         const cache = initializeCache(
             process.env.CACHE_STORE ?? CacheStore.DATABASE,
             character,
-            "",
-            db
+            '',
+            db,
         ); // "" should be replaced with dir for file system caching. THOUGHTS: might probably make this into an env
         const runtime: AgentRuntime = await createAgent(
             character,
             db,
             cache,
-            token
+            token,
         );
 
         // start services/plugins/process knowledge
@@ -1437,7 +1438,7 @@ async function startAgent(
     } catch (error) {
         elizaLogger.error(
             `Error starting agent for character ${character.name}:`,
-            error
+            error,
         );
         elizaLogger.error(error);
         if (db) {
@@ -1451,13 +1452,13 @@ const checkPortAvailable = (port: number): Promise<boolean> => {
     return new Promise((resolve) => {
         const server = net.createServer();
 
-        server.once("error", (err: NodeJS.ErrnoException) => {
-            if (err.code === "EADDRINUSE") {
+        server.once('error', (err: NodeJS.ErrnoException) => {
+            if (err.code === 'EADDRINUSE') {
                 resolve(false);
             }
         });
 
-        server.once("listening", () => {
+        server.once('listening', () => {
             server.close();
             resolve(true);
         });
@@ -1468,12 +1469,12 @@ const checkPortAvailable = (port: number): Promise<boolean> => {
 
 const hasValidRemoteUrls = () =>
     process.env.REMOTE_CHARACTER_URLS &&
-    process.env.REMOTE_CHARACTER_URLS !== "" &&
-    process.env.REMOTE_CHARACTER_URLS.startsWith("http");
+    process.env.REMOTE_CHARACTER_URLS !== '' &&
+    process.env.REMOTE_CHARACTER_URLS.startsWith('http');
 
 const startAgents = async () => {
     const directClient = new DirectClient();
-    let serverPort = Number.parseInt(settings.SERVER_PORT || "3000");
+    let serverPort = Number.parseInt(settings.SERVER_PORT || '3000');
     const args = parseArguments();
     const charactersArg = args.characters || args.character;
     let characters = [defaultCharacter];
@@ -1482,7 +1483,7 @@ const startAgents = async () => {
         characters = await loadCharacterFromOnchain();
     }
 
-    const notOnchainJson = !onchainJson || onchainJson == "null";
+    const notOnchainJson = !onchainJson || onchainJson == 'null';
 
     if ((notOnchainJson && charactersArg) || hasValidRemoteUrls()) {
         characters = await loadCharacters(charactersArg);
@@ -1496,13 +1497,13 @@ const startAgents = async () => {
             await startAgent(character, directClient);
         }
     } catch (error) {
-        elizaLogger.error("Error starting agents:", error);
+        elizaLogger.error('Error starting agents:', error);
     }
 
     // Find available port
     while (!(await checkPortAvailable(serverPort))) {
         elizaLogger.warn(
-            `Port ${serverPort} is in use, trying ${serverPort + 1}`
+            `Port ${serverPort} is in use, trying ${serverPort + 1}`,
         );
         serverPort++;
     }
@@ -1521,17 +1522,17 @@ const startAgents = async () => {
 
     directClient.start(serverPort);
 
-    if (serverPort !== Number.parseInt(settings.SERVER_PORT || "3000")) {
+    if (serverPort !== Number.parseInt(settings.SERVER_PORT || '3000')) {
         elizaLogger.log(`Server started on alternate port ${serverPort}`);
     }
 
     elizaLogger.info(
-        "Run `pnpm start:client` to start the client and visit the outputted URL (http://localhost:5173) to chat with your agents. When running multiple agents, use client with different port `SERVER_PORT=3001 pnpm start:client`"
+        'Run `pnpm start:client` to start the client and visit the outputted URL (http://localhost:5173) to chat with your agents. When running multiple agents, use client with different port `SERVER_PORT=3001 pnpm start:client`',
     );
 };
 
 startAgents().catch((error) => {
-    elizaLogger.error("Unhandled error in startAgents:", error);
+    elizaLogger.error('Unhandled error in startAgents:', error);
     process.exit(1);
 });
 
@@ -1541,12 +1542,12 @@ if (
     parseBooleanFromText(process.env.PREVENT_UNHANDLED_EXIT)
 ) {
     // Handle uncaught exceptions to prevent the process from crashing
-    process.on("uncaughtException", function (err) {
-        console.error("uncaughtException", err);
+    process.on('uncaughtException', function (err) {
+        console.error('uncaughtException', err);
     });
 
     // Handle unhandled rejections to prevent the process from crashing
-    process.on("unhandledRejection", function (err) {
-        console.error("unhandledRejection", err);
+    process.on('unhandledRejection', function (err) {
+        console.error('unhandledRejection', err);
     });
 }

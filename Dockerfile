@@ -2,10 +2,12 @@
 FROM node:23.3.0-slim AS builder
 
 # Install pnpm globally and necessary build tools
-RUN npm install -g pnpm@9.15.4 && \
-    apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y \
+RUN apt-get update && \
+    apt-get install -y gpg && \
+    apt-key update && \
+    apt-get update --allow-insecure-repositories && \
+    apt-get install -y --allow-unauthenticated \
+    pnpm \
     git \
     python3 \
     python3-pip \
@@ -26,7 +28,8 @@ RUN npm install -g pnpm@9.15.4 && \
     openssl \
     libssl-dev libsecret-1-dev && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    npm install -g pnpm@9.15.4
 
 # Set Python 3 as the default python
 RUN ln -sf /usr/bin/python3 /usr/bin/python
@@ -40,8 +43,20 @@ COPY . .
 # Install dependencies
 RUN pnpm install --no-frozen-lockfile
 
-# Build the project
-RUN pnpm run build && pnpm prune --prod
+# Build the project including any generated agents
+RUN pnpm run build
+
+# Build generated agents if they exist
+RUN if [ -d "agent/generated" ]; then \
+    for agent in agent/generated/*; do \
+        if [ -d "$agent" ]; then \
+            cd "$agent" && \
+            pnpm install && \
+            pnpm run build && \
+            cd /app; \
+        fi \
+    done \
+fi
 
 # Final runtime image
 FROM node:23.3.0-slim

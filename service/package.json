@@ -1,0 +1,18 @@
+{
+    "name": "@elizaos/agent-builder-service",
+    "version": "1.0.0",
+    "type": "module",
+    "dependencies": {
+        "@elizaos/core": "workspace:*",
+        "kafkajs": "^2.0.0",
+        "yargs": "^17.0.1"
+    },
+    "devDependencies": {
+        "tsx": "^4.0.0",
+        "typescript": "^5.0.0",
+        "cross-env": "^7.0.3"
+    },
+    "scripts": {
+        "dev": "cross-env NODE_ENV=development tsx index.ts"
+    }
+}
